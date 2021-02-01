@@ -27,12 +27,12 @@ if DB_AVAILABLE:
 
 welc_txt = f"""
 UwU , I'm {OwnerName}'s Loli-chan .
-If You want Something, try contacting me with the button given below. 
-"""
+If You want Something, try contacting me with the buttons given below. 
+Just dont say 'hello' / 'hi', get staright to the point ,ffs """
 
 
 NOTIFY_ID = Owner
-BLACKLIST = ['hack', 'fuck', 'bitch', 'pubg', 'sex', 'bitcoin']
+BLACKLIST = ['hack', 'fuck', 'bitch', 'pubg', 'sex', 'bitcoin','hello' ,'hi',]
 
 
 @app.on_message(~filters.me & filters.private & ~filters.bot)
@@ -48,10 +48,10 @@ async def pm_block(client, message):
                 if x in BLACKLIST:
                     await client.send_sticker(
                         message.chat.id,
-                        sticker='CAADAgAD1QQAAp7kTAry1JrL3zVXSxYE',
+                        sticker='CAACAgUAAxkBAAEC3JBgGCUorQxL41RGQwqD2p_YxDlneQACagADNFwoOsGQufTU4CkqHgQ',
                     )
                     await message.reply(
-                        'Naah im blocking you!',
+                        'OwO , i am done here , ffs get tf out of here !',
                     )
                     await client.block_user(message.chat.id)
                     return
@@ -124,16 +124,16 @@ async def pm_button(client, query):
         and not re.match('engine_pm_blk', query.data)
     ):
         await client.answer_callback_query(
-            query.id, "You shouln't click this.", show_alert=False,
+            query.id, "Tf you should not be the one doin this shit.", show_alert=False,
         )
         return
     if re.match('engine_pm_block', query.data):
         await app.send_sticker(
-            query.from_user.id, sticker='CAADAgAD1QQAAp7kTAry1JrL3zVXSxYE',
+            query.from_user.id, sticker='CAACAgUAAxkBAAEC3JBgGCUorQxL41RGQwqD2p_YxDlneQACagADNFwoOsGQufTU4CkqHgQ',
         )
         await setbot.edit_inline_text(
             query.from_user.id,
-            'Sorry, no cash for today.\nGoodbye!',
+            'I am broke.\nsayonara !',
         )
         await app.block_user(query.from_user.id)
     elif re.match('engine_pm_nope', query.data):
@@ -168,19 +168,19 @@ async def pm_button(client, query):
         await setbot.edit_inline_text(query.inline_message_id, '👍')
         await app.send_message(
             query.from_user.id,
-            'Hello, if you want to report any bugs, visit @NanaBotSupport.',
+            'ffs gtfo.',
         )
     elif re.match('engine_pm_none', query.data):
         await setbot.edit_inline_text(query.inline_message_id, '👍')
         await app.send_message(
             query.from_user.id,
-            'Alright then',
+            'Aight then. ',
         )
     elif re.match('engine_pm_apr', query.data):
         target = query.data.split('-')[1]
         await query.message.edit_text(f'[Approved to PM]({target})')
         await app.send_message(
-            target, 'Hello, this is **Nana**, my master approved you to PM.',
+            target, 'Hmph ! does not seem to be a bad guy  still doe get to the point ,Why are you here ? .',
         )
         set_whitelist(int(target), True)
     elif re.match(r'engine_pm_blk', query.data):
@@ -188,7 +188,7 @@ async def pm_button(client, query):
         await query.message.edit_text('That user was blocked ~')
         await app.send_message(
             target,
-            'Hello, you have been blocked.\nSorry about this!',
+            'OwO Stop pestering and btw Sayoooonara.',
         )
         await app.block_user(target)
     else:
