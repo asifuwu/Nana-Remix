@@ -19,7 +19,7 @@ async def pmpermit_func(answers):
             callback_data='engine_pm_nope',
         ),
         InlineKeyboardButton(
-            'Report',
+            'Pester me',
             callback_data='engine_pm_report',
         ),
         InlineKeyboardButton(
