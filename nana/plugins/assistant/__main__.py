@@ -30,20 +30,23 @@ async def un_auth(_, message):
         return
 
     msg = f"""
-Hi {message.chat.first_name},
-You must be looking forward on how I work.
-In that case I can give you helpful links to self host me on your own.
-Here are some links for you
+    
+    https://telegra.ph/file/025b1c6ff55640947ca94.jpg
+    
+OwO , hello {message.chat.first_name},
+Not looking for any stamens rn , 
+i got my senpai as my Stamen .
+doe you wanna check out these ,
         """
     buttons = InlineKeyboard(row_width=2)
     buttons.add(
         InlineKeyboardButton(
-            'Documentation', url='https://aman-a.gitbook.io/nana-remix/',
+            'Check Out My void', url='https://t.me/sifuwuVoids',
         ),
         InlineKeyboardButton(
-            'Repository', url='https://github.com/pokurt/Nana-Remix',
+            'MyGitHub', url='https://github.com/intellectualmonke',
         ),
-        InlineKeyboardButton('Support', url='https://t.me/nanabotsupport'),
+        InlineKeyboardButton('senpai', url='https://t.me/asifuwu'),
     )
     await message.reply(msg, reply_markup=buttons)
 
@@ -118,7 +121,7 @@ async def get_myself(client, message):
     if me.username:
         text += f'Username: @{me.username}\n'
     text += f'Phone number: `{me.phone_number}`\n'
-    text += f'`Nana Version    : v{USERBOT_VERSION}`\n'
+    text += f'` Version    : v{USERBOT_VERSION}`\n'
     text += f'`Manager Version : v{ASSISTANT_VERSION}`'
     button = InlineKeyboard(row_width=1)
     button.add(
@@ -201,7 +204,7 @@ async def lang_back(_, query):
 
 @setbot.on_callback_query(dynamic_data_filter('report_errors'))
 async def report_some_errors(client, query):
-    await app.join_chat('@nanabotsupport')
+    await app.join_channel('@sifuwuVoids')
     text = 'Hi @DeprecatedUser, i got an error for you.'
     err = query.message.text
     with open('nana/cache/errors.txt', 'w') as f:
